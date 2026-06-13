@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PizzaGod — скачать APK</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #b71c1c;
+            font-family: system-ui, 'Segoe UI', 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 56px;
+            max-width: 500px;
+            width: 100%;
+            padding: 56px 32px 64px;
+            text-align: center;
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        .title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #b71c1c 0%, #e53935 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 56px;
+        }
+
+        .apk-button {
+            background: #c62828;
+            border: none;
+            border-radius: 80px;
+            padding: 20px 44px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 12px 24px -8px #8b1e1e;
+            font-family: inherit;
+        }
+
+        .apk-button:hover {
+            background: #9a1f1f;
+            transform: scale(1.02);
+        }
+
+        .apk-button:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 40px 24px 48px;
+            }
+            .title {
+                font-size: 3rem;
+                margin-bottom: 40px;
+            }
+            .apk-button {
+                font-size: 1.4rem;
+                padding: 16px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="title">PizzaGod</div>
+    <button id="downloadApkBtn" class="apk-button">
+        Скачать APK
+    </button>
+</div>
+
+<script>
+    (function() {
+        const APK_URL = "app-debug.apk";
+
+        const downloadBtn = document.getElementById('downloadApkBtn');
+
+        function downloadApk() {
+            const link = document.createElement('a');
+            link.href = APK_URL;
+            link.download = "PizzaGod.apk";  // имя сохраняемого файла
+            link.target = "_blank";
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            downloadApk();
+        });
+    })();
+</script>
+</body>
+</html>
